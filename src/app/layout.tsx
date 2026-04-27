@@ -11,6 +11,14 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Salihu Nurudeen - Portfolio",
   description: "A Full Stack Developer",
+  icons: {
+    icon: [
+      { url: "/favicon.PNG", type: "image/png" },
+      { url: "/favicon.ico", type: "image/x-icon" },
+    ],
+    shortcut: ["/favicon.PNG"],
+    apple: ["/favicon.PNG"],
+  },
 };
 
 export default function RootLayout({
