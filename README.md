@@ -70,7 +70,7 @@ A premium, interactive personal portfolio website built with modern web technolo
    npm run dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
+5. [Open aladdincode.netlify.app ](https://aladdincode.netlify.app/) to view the portfolio.
 
 ## 📜 Scripts
 
