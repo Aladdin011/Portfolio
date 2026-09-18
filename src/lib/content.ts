@@ -76,6 +76,35 @@ export const TIMELINE = [
   },
 ];
 
+export const ABOUT_PRINCIPLES = [
+  { number: '01', title: 'Understand before building.', body: 'The best implementation starts with a clear picture of the people, constraints, and failure modes around a problem.' },
+  { number: '02', title: 'Make complexity feel simple.', body: 'Good systems can be deep underneath and calm at the surface. I care about both sides of that boundary.' },
+  { number: '03', title: 'Automate the boring path.', body: 'If a person is repeatedly moving information between places, the system is asking for a better design.' },
+  { number: '04', title: 'Build for the person using it.', body: 'A feature only matters when it makes someone’s work clearer, safer, or meaningfully faster.' },
+  { number: '05', title: 'Keep learning after it ships.', body: 'Production is part of the feedback loop. Monitoring, maintenance, and reflection shape the next build.' },
+];
+
+export const ABOUT_JOURNEY = [
+  { label: 'EARLY', title: 'Learning fundamentals', body: 'A Computer Science foundation at Federal University of Lafia, alongside the practical discipline of keeping infrastructure running.' },
+  { label: 'BUILDING', title: 'Real systems for real teams', body: 'From network and hardware support at the National Assembly to enterprise data and IT at Private Flyers International.' },
+  { label: 'EXPLORING', title: 'AI, automation, and architecture', body: 'Building the operations platform at JD Marc made the connection between access control, realtime data, and useful automation tangible.' },
+  { label: 'NOW', title: 'Building with greater intention', body: 'Looking for a full-time engineering role where I can own a meaningful part of a system and keep improving it over time.' },
+];
+
+export const ABOUT_TECHNICAL_AREAS = [
+  { label: 'FRONTEND', title: 'Interfaces and interaction', items: ['TypeScript', 'React', 'Next.js', 'Tailwind'] },
+  { label: 'BACKEND', title: 'Systems and service boundaries', items: ['Node.js', 'Express', 'PostgreSQL / Supabase', 'MongoDB'] },
+  { label: 'AUTOMATION', title: 'Removing repetitive work', items: ['Realtime workflows', 'Reporting pipelines', 'Role-based access'] },
+  { label: 'INFRASTRUCTURE', title: 'Deployment and reliability', items: ['Docker', 'GitHub Actions', 'AWS', 'Nginx'] },
+];
+
+export const ABOUT_CURRENTLY = [
+  { label: 'BUILDING', value: 'Thoughtful full-stack systems and an evolving portfolio.' },
+  { label: 'LEARNING', value: 'Python for data analytics, C, algorithms, and Go.' },
+  { label: 'EXPLORING', value: 'AI-assisted workflows, architecture, and product thinking.' },
+  { label: 'LOOKING FOR', value: 'A team where reliable engineering has a visible effect.' },
+];
+
 export const COMPACT_PROJECTS = [
   // TODO(confirm): Confirm whether the office-management microservices project
   // is separate from the JD Marc operations platform before shipping the case study.

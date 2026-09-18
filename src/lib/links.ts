@@ -15,6 +15,7 @@ export const LINKS = {
   emailHref: 'mailto:nuzyflex14@gmail.com',
   phoneHref: 'tel:+2347065020706',
   top: '#top',
+  about: '/about',
   work: '/#work',
   practice: '#practice',
   stack: '#stack',

@@ -1,19 +1,25 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { LINKS } from '@/lib/links';
 import SmartLink from './SmartLink';
 
 const navItems = [
+  { label: 'About', href: LINKS.about },
   { label: 'Work', href: LINKS.work },
   { label: 'How I work', href: LINKS.practice },
   { label: 'Stack', href: LINKS.stack },
   { label: 'Journey', href: LINKS.journey },
 ];
 
+/**
+ * MACRO MOTION — the only thing on the page that animates continuously.
+ * The bar condenses once past the fold and carries a hairline read-out of
+ * scroll depth. Both are information, not decoration. Written straight to a
+ * CSS custom property inside rAF so React never re-renders on scroll.
+ */
 export default function Nav() {
   const ref = useRef<HTMLElement>(null);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -32,47 +38,29 @@ export default function Nav() {
       if (!frame) frame = requestAnimationFrame(update);
     };
 
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMenuOpen(false);
-    };
-
     update();
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
-    window.addEventListener('keydown', onKeyDown);
     return () => {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
-      window.removeEventListener('keydown', onKeyDown);
       if (frame) cancelAnimationFrame(frame);
     };
   }, []);
 
-  const closeMenu = () => setMenuOpen(false);
-
   return (
     <nav className="nav" ref={ref} data-scrolled="false">
       <div className="wrap nav-in">
-        <a className="brand" href={LINKS.top} onClick={closeMenu}>
-          NS<span aria-hidden="true">/</span><span className="brand-full">Nurudeen Salihu</span>
+        <a className="brand" href={LINKS.top}>
+          Nurudeen Salihu
         </a>
-        <button
-          className="nav-toggle"
-          type="button"
-          aria-expanded={menuOpen}
-          aria-controls="primary-navigation"
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          <span>{menuOpen ? 'Close' : 'Menu'}</span>
-          <span className="nav-toggle-icon" aria-hidden="true"><i /><i /></span>
-        </button>
-        <div className="nav-links" id="primary-navigation" data-open={menuOpen}>
+        <div className="nav-links">
           {navItems.map((item) => (
-            <a key={item.label} href={item.href} onClick={closeMenu}>
+            <a key={item.label} href={item.href}>
               {item.label}
             </a>
           ))}
-          <SmartLink className="btn nav-resume" href={LINKS.resume}>
+          <SmartLink className="btn" href={LINKS.resume}>
             Résumé
           </SmartLink>
         </div>
