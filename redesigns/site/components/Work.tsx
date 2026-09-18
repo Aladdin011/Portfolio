@@ -8,12 +8,11 @@ import { LINKS } from '@/lib/links';
 
 export default function Work() {
   return (
-    <section id="work" className="chapter chapter-work">
+    <section id="work">
       <div className="wrap">
         <div className="sec-head">
           <div>
             <span className="label">Work</span>
-            <span className="section-mark mono">ARCHIVE / 01 — 03</span>
           </div>
           <div>
             <h2>Three systems, in the order I would defend them.</h2>
@@ -25,7 +24,6 @@ export default function Work() {
         </div>
 
         <ProjectRow
-          index="01"
           title="Multi-department operations platform"
           role="Built at JD Marc Limited / production, internal"
           summary="A single workspace replacing nine departments' worth of spreadsheets and email threads. Staff, HR, and admin each see a different application, enforced at the database rather than in the interface."
@@ -50,7 +48,6 @@ export default function Work() {
         />
 
         <ProjectRow
-          index="02"
           title="Office management on service boundaries"
           role="Personal build / microservices and deployment practice"
           summary="The same business problem rebuilt the other way: five-plus independent services behind an API gateway, each owning its own data, talking over HTTP and a message broker."
@@ -74,7 +71,6 @@ export default function Work() {
         />
 
         <ProjectRow
-          index="03"
           title="Aladdin Drive — automotive commerce"
           role="Personal build / payments and authentication"
           summary="A digital showroom that has to take real money: listings, checkout, invoicing, and an admin side for products, users, and orders."
