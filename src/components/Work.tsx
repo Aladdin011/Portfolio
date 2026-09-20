@@ -1,10 +1,11 @@
 import ProjectRow from './ProjectRow';
-import SmartLink from './SmartLink';
+import Filmstrip from './Filmstrip';
 import OperationsSchematic from './schematics/Operations';
 import ServicesSchematic from './schematics/Services';
 import CommerceSchematic from './schematics/Commerce';
 import { COMPACT_PROJECTS } from '@/lib/content';
 import { LINKS } from '@/lib/links';
+import { SYSTEMS } from '@/lib/status';
 
 export default function Work() {
   return (
@@ -45,6 +46,8 @@ export default function Work() {
           schematic={<OperationsSchematic />}
           caption="One schema, nine department applications."
           caseStudyHref="/work/operations-platform"
+          index="01 / 03"
+          status={SYSTEMS[0].state}
         />
 
         <ProjectRow
@@ -68,6 +71,8 @@ export default function Work() {
           ]}
           schematic={<ServicesSchematic />}
           caption="Five services, one trust boundary, async where it is allowed."
+          index="02 / 03"
+          status={SYSTEMS[1].state}
         />
 
         <ProjectRow
@@ -87,28 +92,16 @@ export default function Work() {
           ]}
           schematic={<CommerceSchematic />}
           caption="Order truth comes from the webhook, not the redirect."
+          index="03 / 03"
+          status={SYSTEMS[2].state}
         />
 
-        <div style={{ marginTop: 'clamp(32px, 5vw, 52px)' }}>
-          {COMPACT_PROJECTS.map((p) => (
-            <div className="compact" key={p.title}>
-              <div>
-                <h3>{p.title}</h3>
-                <p>{p.body}</p>
-                <p className="stack" style={{ margin: 0 }}>
-                  {p.stack}
-                </p>
-              </div>
-              <div className="plinks">
-                {p.links.map((l) => (
-                  <SmartLink key={l.label} href={l.href} className="btn">
-                    {l.label}
-                  </SmartLink>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+        <Filmstrip
+          items={COMPACT_PROJECTS.map((project, index) => ({
+            ...project,
+            status: SYSTEMS[index + 3].state,
+          }))}
+        />
       </div>
     </section>
   );

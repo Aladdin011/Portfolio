@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import StatusBar from '@/components/StatusBar';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import AboutPage from '@/components/AboutPage';
@@ -16,5 +17,5 @@ export const metadata: Metadata = {
 };
 
 export default function AboutRoute() {
-  return <><Nav /><AboutPage /><Footer /></>;
+  return <><StatusBar /><Nav /><AboutPage /><Footer /></>;
 }

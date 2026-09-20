@@ -34,6 +34,7 @@
   --pad: clamp(20px, 5vw, 80px);
   --maxw: 1160px;
   --rail: 168px;
+  --statusbar-h: 34px;
 }
 
 @media (prefers-color-scheme: light) {
@@ -147,7 +148,7 @@ p:last-child { margin-bottom: 0; }
 /* ══ MACRO: nav condenses and grows a progress rule on scroll ══════════ */
 .nav {
   position: sticky;
-  top: 0;
+  top: var(--statusbar-h);
   z-index: 60;
   background: color-mix(in srgb, var(--bg) 82%, transparent);
   backdrop-filter: blur(14px) saturate(1.2);
@@ -185,6 +186,20 @@ p:last-child { margin-bottom: 0; }
 .nav-links a { font-size: 13.5px; text-decoration: none; color: var(--fg-dim); transition: color var(--t-micro) var(--ease-soft); }
 .nav-links a:hover { color: var(--fg); }
 @media (max-width: 760px) { .nav-links a:not(.btn) { display: none; } }
+
+/* ══ status bar ═════════════════════════════════════════════════════════ */
+.status-bar { position: sticky; top: 0; z-index: 70; height: var(--statusbar-h); background: var(--surface); border-bottom: 1px solid var(--rule); }
+.status-bar-in { height: 100%; display: flex; align-items: center; gap: 20px; }
+.status-sig-link { text-decoration: none; display: inline-flex; }
+.status-bar-right { display: flex; align-items: center; gap: 18px; margin-left: auto; }
+.status-deploy, .clock { font-size: 11.5px; color: var(--fg-faint); }
+@media (max-width: 640px) { .status-deploy { display: none; } }
+@media (max-width: 480px) { .clock { display: none; } }
+.status-sig { display: inline-flex; align-items: center; gap: 8px; }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.status-sig[data-state='operational'] .status-dot { background: var(--accent-2); animation: breathe 4.5s var(--ease-soft) infinite; }
+.status-sig[data-state='archived'] .status-dot { background: var(--fg-faint); }
+.status-label { font-size: 11.5px; letter-spacing: 0.01em; }
 
 /* ══ buttons — fill rises from the baseline ═══════════════════════════ */
 .btn {
@@ -276,8 +291,7 @@ p:last-child { margin-bottom: 0; }
 .settle { opacity: 0; transform: translateY(10px); transition: opacity 600ms var(--ease-soft), transform 600ms var(--ease); transition-delay: var(--d, 0ms); }
 [data-ready='true'] .settle { opacity: 1; transform: none; }
 
-.readout { border-top: 1px solid var(--rule-strong); border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: repeat(4, 1fr); }
-.readout { position: relative; }
+.readout { position: relative; border-top: 1px solid var(--rule-strong); border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: repeat(4, 1fr); }
 .readout::before {
   content: '';
   position: absolute;
@@ -369,11 +383,19 @@ section { padding: clamp(56px, 8vw, 108px) 0; border-top: 1px solid var(--rule);
 @keyframes flow { to { stroke-dashoffset: -18; } }
 .schem-cap { font-family: var(--font-mono), monospace; font-size: 11px; color: var(--fg-faint); margin-top: 12px; display: block; }
 
-/* ══ compact rows ═════════════════════════════════════════════════════ */
-.compact { border-top: 1px solid var(--rule); padding: 22px 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; }
-@media (max-width: 660px) { .compact { grid-template-columns: 1fr; } }
-.compact h3 { font-size: 17px; margin-bottom: 6px; }
-.compact p { color: var(--fg-dim); font-size: 14.5px; max-width: 60ch; margin-bottom: 8px; }
+/* ══ filmstrip ═════════════════════════════════════════════════════════ */
+.filmstrip { margin-top: clamp(32px, 5vw, 52px); }
+.filmstrip-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 14px; }
+.filmstrip-counter { font-size: 12px; color: var(--fg-faint); }
+.filmstrip-track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 4px; scrollbar-width: none; }
+.filmstrip-track::-webkit-scrollbar { display: none; }
+.filmstrip-card { scroll-snap-align: start; flex: 0 0 min(360px, 86vw); border: 1px solid var(--rule); background: var(--surface); padding: 20px 22px; }
+.filmstrip-card-head { margin-bottom: 12px; }
+.filmstrip-card h3 { font-size: 17px; margin-bottom: 8px; }
+.filmstrip-card p { color: var(--fg-dim); font-size: 14.5px; margin-bottom: 8px; }
+.filmstrip-dots { display: flex; gap: 8px; margin-top: 14px; }
+.filmstrip-dot { width: 6px; height: 6px; border-radius: 50%; border: 0; padding: 0; background: var(--rule-strong); cursor: pointer; transition: background var(--t-base) var(--ease-soft), transform var(--t-base) var(--ease); }
+.filmstrip-dot[data-active='true'] { background: var(--accent); transform: scale(1.3); }
 
 /* ══ practice / stack / journey ═══════════════════════════════════════ */
 .rows > div { display: grid; grid-template-columns: minmax(0, 176px) minmax(0, 1fr); gap: clamp(14px, 3vw, 34px); padding: 22px 0; border-bottom: 1px solid var(--rule); }
@@ -414,6 +436,18 @@ footer { border-top: 1px solid var(--rule); padding: 24px 0 40px; font-size: 12.
 .footer-in { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
 .ghost { font-family: var(--font-mono), monospace; font-size: 12.5px; background: none; border: 1px solid var(--rule); color: var(--fg-faint); padding: 5px 11px; cursor: pointer; transition: color var(--t-micro) var(--ease-soft), border-color var(--t-micro) var(--ease-soft); }
 .ghost:hover { color: var(--fg); border-color: var(--rule-strong); }
+
+/* ══ system status ═════════════════════════════════════════════════════ */
+.status-list { border-top: 1px solid var(--rule); }
+.status-row { display: grid; grid-template-columns: 16px minmax(0, 1fr) minmax(0, 1fr) 90px; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--rule); text-decoration: none; color: inherit; transition: background var(--t-base) var(--ease-soft); }
+.status-row:hover { background: var(--surface); }
+.status-row .status-sig { display: contents; }
+.status-name { font-size: 14.5px; color: var(--fg); }
+.status-note { font-size: 13px; color: var(--fg-faint); }
+.status-state { font-size: 11.5px; text-align: right; }
+.status-state[data-state='operational'] { color: var(--accent-2); }
+.status-state[data-state='archived'] { color: var(--fg-faint); }
+@media (max-width: 760px) { .status-row { grid-template-columns: 16px minmax(0, 1fr) 90px; } .status-note { display: none; } }
 
 /* ══ the honest-degradation rule ══════════════════════════════════════
    A link with no destination never renders as "#". */

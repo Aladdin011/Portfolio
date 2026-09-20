@@ -1,7 +1,9 @@
 import type { ReactNode } from 'react';
 import Link from 'next/link';
 import SmartLink from './SmartLink';
+import StatusDot from './StatusDot';
 import type { ProjectLink } from '@/lib/content';
+import type { SystemState } from '@/lib/status';
 
 export default function ProjectRow({
   title,
@@ -13,6 +15,8 @@ export default function ProjectRow({
   schematic,
   caption,
   caseStudyHref,
+  index,
+  status,
 }: {
   title: string;
   role: string;
@@ -24,10 +28,16 @@ export default function ProjectRow({
   caption: string;
   /** An internal route, not an external URL — always live, so it bypasses SmartLink's null-check entirely. */
   caseStudyHref?: string;
+  index: string;
+  status: SystemState;
 }) {
   return (
     <article className="proj">
       <div>
+        <div className="proj-meta">
+          <span className="proj-index mono">Case {index}</span>
+          <StatusDot state={status} />
+        </div>
         <h3>{title}</h3>
         <p className="role">{role}</p>
         <p>{summary}</p>

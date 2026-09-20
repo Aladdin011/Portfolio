@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { ABOUT_CURRENTLY, ABOUT_JOURNEY, ABOUT_PRINCIPLES, ABOUT_TECHNICAL_AREAS } from '@/lib/content';
 import { LINKS } from '@/lib/links';
@@ -46,7 +47,7 @@ export default function AboutPage() {
           <div className="portrait-wrap">
             <div className="portrait-card" ref={portraitRef}>
               <div className="portrait-glow" aria-hidden="true" />
-              <img src="/Hero.jpg" alt="Nurudeen Salihu, software developer in Abuja" />
+              <Image src="/Hero.jpg" alt="Nurudeen Salihu, software developer in Abuja" width={720} height={960} priority />
               <span className="portrait-caption">N / 01<br /><span>Abuja, Nigeria · WAT</span></span>
             </div>
             <span className="portrait-note">A system is a conversation<br />between intent and reality.</span>

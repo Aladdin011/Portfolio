@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import StatusBar from '@/components/StatusBar';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import OperationsSchematic from '@/components/schematics/Operations';
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
 export default function OperationsPlatformCaseStudy() {
   return (
     <>
+      <StatusBar />
       <Nav />
       <main>
         <section className="case-hero" style={{ borderTop: 0, paddingBottom: 0 }}>

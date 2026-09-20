@@ -10,6 +10,7 @@ const navItems = [
   { label: 'How I work', href: LINKS.practice },
   { label: 'Stack', href: LINKS.stack },
   { label: 'Journey', href: LINKS.journey },
+  { label: 'Status', href: '#status' },
 ];
 
 /**

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: 'Nurudeen Salihu — Full-stack developer, Abuja',
     description,
     type: 'website',
-    images: ['/og.png'], // 1200×630 — name plus one metric is enough
+    images: ['/logo1.png'],
   },
   twitter: { card: 'summary_large_image' },
   alternates: { canonical: '/' },
