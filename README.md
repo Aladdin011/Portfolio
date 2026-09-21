@@ -1,88 +1,60 @@
-# Fawaz V - Personal Portfolio
+# AladdinCode portfolio
 
-A premium, interactive personal portfolio website built with modern web technologies to showcase my projects, technical skills, and professional journey.
+Personal portfolio for Nurudeen Salihu, built with Next.js App Router, React, and
+TypeScript. The site presents selected work, engineering practice, technical focus,
+career timeline, and a contact form.
 
-## 🚀 Features
+## Stack
 
-- **Immersive Design:** Dark-themed, high-contrast aesthetic with ambient lighting and glassmorphism effects.
-- **Scrolly-telling Experience:** Smooth scroll animations and transition effects guided by user interaction.
-- **Interactive Projects Grid:** Bento-style grid layout with video previews and detailed modal views for each project.
-- **Dynamic Timeline:** Visual representation of my professional career and educational background.
-- **Testimonial Marquee:** Infinite scrolling marquee for client and colleague testimonials.
-- **Responsive Layout:** Fully optimized for desktops, tablets, and mobile devices.
-- **Contact Integration:** Functional contact form integrated with Nodemailer for direct email communication.
+- Next.js 16 with the App Router
+- React 19 and TypeScript
+- CSS design tokens and component-scoped class conventions in `src/app/globals.css`
+- Nodemailer for the `/api/send-email` route
+- Next Font for IBM Plex Mono and Instrument Sans
 
-## 🛠️ Tech Stack
+## Project structure
 
-- **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
-- **Language:** TypeScript
-- **Styling:** [Tailwind CSS 4](https://tailwindcss.com/)
-- **Animations:** [Framer Motion](https://www.framer.com/motion/)
-- **3D Elements:** [Three.js](https://threejs.org/) & [React Three Fiber](https://docs.pmnd.rs/react-three-fiber)
-- **Icons:** Custom SVG & Lucide React
-- **Video:** [FFmpeg](https://ffmpeg.org/) (for optimization) & HTML5 Video
-
-## 📂 Project Structure
-
-```
-├── src/
-│   ├── app/             # Application routes (Next.js App Router)
-│   ├── components/      # Reusable UI components (Hero, Projects, Skills, etc.)
-│   ├── hooks/           # Custom React hooks
-│   ├── lib/             # Utility functions and shared logic
-│   └── styles/          # Global styles and Tailwind configuration
-├── public/              # Static assets (images, videos, fonts)
-├── .env.local           # Environment variables (not committed)
-└── package.json         # Project dependencies and scripts
+```text
+src/
+  app/                    Next.js routes, metadata, API route, and global CSS
+  components/
+    layout/               Navigation, footer, status bar, clock, and brand UI
+    sections/             Page sections and full-page content blocks
+    ui/                   Reusable links, status indicators, and project rows
+    schematics/           Project-specific SVG schematic components
+  data/                   Portfolio content and structured page data
+  lib/                    Links, system status, and generated build metadata
+public/                   Browser-served images, video, résumé, and icons
+scripts/                  Build-time metadata generation
 ```
 
-## 🏁 Getting Started
+## Getting started
 
-### Prerequisites
+The project requires Node.js `24.19.x` (see `.nvmrc`) and npm.
 
-- Node.js (v18 or higher)
-- npm, yarn, or pnpm
+```bash
+npm install
+npm run dev
+```
 
-### Installation
+Open [http://localhost:3000](http://localhost:3000).
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/fawazv/personal_porfolio.git
-   cd personal_porfolio
-   ```
+## Scripts
 
-2. Install dependencies:
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+- `npm run dev` — generate build metadata and start the development server.
+- `npm run build` — generate build metadata and create an optimized production build.
+- `npm start` — serve the latest production build.
+- `npm run lint` — run ESLint.
+- `npx tsc --noEmit` — run the TypeScript compiler without emitting files.
 
-3. Set up environment variables:
-   Create a `.env.local` file in the root directory and add the necessary variables for email services (if applicable):
-   ```env
-   EMAIL_USER=your_email@example.com
-   EMAIL_PASS=your_app_password
-   ```
+## Environment variables
 
-4. Run the development server:
-   ```bash
-   npm run dev
-   ```
+The contact API uses:
 
-5. [Open aladdincode.netlify.app ](https://aladdincode.netlify.app/) to view the portfolio.
+```env
+EMAIL_USER=your_email@example.com
+EMAIL_PASS=your_app_password
+```
 
-## 📜 Scripts
-
-- `npm run dev`: Starts the development server.
-- `npm run build`: Builds the application for production.
-- `npm start`: Runs the built production application.
-- `npm run lint`: Runs ESLint for code quality checks.
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/fawazv/personal_porfolio/issues).
-
-## 📄 License
-
-This project is open-source and available under the [MIT License](LICENSE).
+Keep local environment files private. The repository's `.env.example` documents the
+expected variable names without credentials.

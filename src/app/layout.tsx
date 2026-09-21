@@ -20,26 +20,33 @@ const sans = Instrument_Sans({
 });
 
 const description =
-  'Full-stack developer in Abuja. I build service boundaries, access control, and the automation that removes work nobody should be doing by hand — a realtime sync layer that replaced hourly batch updates, role-based access across nine departments, 40% of manual steps gone.';
+  'Explore AladdinCode — the portfolio of a software developer focused on full-stack development, AI automation, modern interfaces, and innovative digital products.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(LINKS.site),
-  title: 'Nurudeen Salihu — Full-stack developer, Abuja',
+  title: 'AladdinCode — Software Developer & AI Engineer',
   description,
   openGraph: {
-    title: 'Nurudeen Salihu — Full-stack developer, Abuja',
+    title: 'AladdinCode — Software Developer & AI Engineer',
     description,
     type: 'website',
+    siteName: 'AladdinCode',
     images: ['/logo1.png'],
   },
-  twitter: { card: 'summary_large_image' },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AladdinCode — Software Developer & AI Engineer',
+    description: 'Full-stack development, AI automation, and refined digital experiences.',
+    images: ['/logo1.png'],
+  },
+  icons: { icon: '/favicon.svg', shortcut: '/favicon.svg', apple: '/logo1.png' },
   alternates: { canonical: '/' },
 };
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: dark)', color: '#0C2422' },
-    { media: '(prefers-color-scheme: light)', color: '#EAE6DA' },
+    { media: '(prefers-color-scheme: dark)', color: '#0b0f14' },
+    { media: '(prefers-color-scheme: light)', color: '#f4f6f8' },
   ],
 };
 

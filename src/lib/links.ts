@@ -7,12 +7,12 @@
  */
 export const LINKS = {
   site: 'https://aladdincode.netlify.app',
-  github: null as string | null,            // TODO: add your profile
-  linkedin: null as string | null,          // TODO: add your profile
+  github: 'https://github.com/Aladdin011',
+  linkedin: 'https://www.linkedin.com/in/salihu-nurudeen-2431461b6',
   resume: '/Nurudeen-Salihu-Resume.pdf',
-  email: 'nuzyflex14@gmail.com',
+  email: 'Nurudeen.dev@gmail.com',
   phone: '+2347065020706',
-  emailHref: 'mailto:nuzyflex14@gmail.com',
+  emailHref: 'mailto:Nurudeen.dev@gmail.com',
   phoneHref: 'tel:+2347065020706',
   top: '#top',
   about: '/about',

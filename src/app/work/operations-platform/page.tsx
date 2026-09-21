@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import StatusBar from '@/components/StatusBar';
-import Nav from '@/components/Nav';
-import Footer from '@/components/Footer';
+import StatusBar from '@/components/layout/StatusBar';
+import Nav from '@/components/layout/Nav';
+import Footer from '@/components/layout/Footer';
 import OperationsSchematic from '@/components/schematics/Operations';
-import SmartLink from '@/components/SmartLink';
+import SmartLink from '@/components/ui/SmartLink';
 import { LINKS } from '@/lib/links';
 
 const description =
